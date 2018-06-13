@@ -1,69 +1,79 @@
+/**
+ * Atividade JokenPO
+ * @Author Bruno Rodrigues/ Fabricio Ferreira
+ *  13/06/2018
+ */
+
 package br.com.java;
 
+import java.util.Random;
 import java.util.Scanner;
 
-class Jokenpo {
-        public static void main (String args []){
-		
+public class JokenPO {
+
+	public static void main(String[] args) {
+
+		int opcao = 0;
+		int jogador;
+		int computador = 0;
+		char escolha;
 		Scanner teclado = new Scanner(System.in);
-		int v1;
-		
-		System.out.println("Escolha entre 0, 1 e 2 , sendo : ");
-		System.out.println("Pedra = 0 ");
-		System.out.println("Papel = 1  ");
-		System.out.println("Tesoura = 2");
-		
-		System.out.println("Jogador 1: ");
-		v1 = teclado.nextInt();
-		
-		System.out.println("Jogador 2: ");
-		v2 = teclado.nextInt();
-		
-		switch (v1){
-			case 0: 
-				switch (v2){
-					case 0:
-						System.out.println("Empate");
-						break;
-					case 1:
-						System.out.println("Jogador 2 ganhou");
-						break;
-					case 2:
-						System.out.println("Jogador 1 ganhou");
-						break;
-						default: 
-							System.out.println ("USUARIO BURRO DO CARALHO");
-				} break;
-			case 1:
-				switch(v2) {
-					case 0: 
-						System.out.println("Jogador 1 ganhou");
-						break;
-					case 1:
-						System.out.println(" Empatou");
-						break;
-					case 2:
-						System.out.println("Jogador 2 ganhou");
-						break;
-					default: 
-						System.out.println ("USUARIO BURRO DO CARALHO");
-				} break;
-			case 2:
-				switch(v2) {
-						case 0:
-							System.out.println("Jogador 2 ganhou");
-							break;
-						case 1:
-							System.out.println("Jogador 1 ganhou");
-							break;
-						case 2:
-							System.out.println("Empate");
-							break;
-						default: 
-				            System.out.println ("USUARIO BURRO DO CARALHO");
-				} break;
-			default: 
-				System.out.println ("USUARIO BURRO DO CARALHO");
+		System.out.println("1. pedra");
+		System.out.println("2. papel");
+		System.out.println("3. tesoura");
+		do {
+		System.out.println("Digite a opção desejada: ");
+		jogador = teclado.nextInt();
+		switch (jogador) {
+		case 1:
+			System.out.println("Jogador escolheu PEDRA");
+			break;
+
+		case 2:
+			System.out.println("Jogador escolheu PAPEL");
+			break;
+
+		case 3:
+			System.out.println("Jogador escolheu TESOURA");
+			break;
+
+		default:// Caso nenhuma opção selecionada
+			System.out.println("Opção Inválida");
+			break;
+
 		}
+		Random opcao1 = new Random();
+		computador = opcao1.nextInt(3) + 1;
+		switch (computador) {
+
+		case 1:
+			System.out.println("Computador escolheu PEDRA");
+			break;
+
+		case 2:
+			System.out.println("Computador escolheu PAPEL");
+			break;
+
+		case 3:
+			System.out.println("Computador escolheu TESOURA");
+			break;
+
+		}
+
+		if ((jogador == 1 && computador == 1) || (jogador == 2 && computador == 2)
+				|| (jogador == 3 && computador == 3)) {
+			System.out.println("EMPATE");
+
+		} else if ((jogador == 1 && computador == 3) || (jogador == 2 && computador == 1)
+				|| (jogador == 3 && computador == 2)) {
+			System.out.println("Jogador VENCEU");
+
+		} else  {
+			System.out.println("Computador venceu");
+		}
+		System.out.println("Deseja jogar novamente?");
+		escolha = teclado.next().charAt(0);
+		} while (escolha == 's');
 	}
+
 }
