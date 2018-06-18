@@ -1,0 +1,18 @@
+package br.com.java;
+
+public class Agenda {
+
+	public static void main(String[] args) {
+		//Agenda
+		String[][] agenda = {{ "Bill gates", "1111-1111", "bill@outlook.com" },
+				{ "Linus Torvalds", "2222-2222", "linus@gmail.com" },
+				{ "Steve Jobs", "3333-3333", "Steve@icloud.com" }};
+		// Recuperando o email do Linus Torvalds
+        System.out.println("E-mail do Linus Torvalds: " + agenda[1][2]);
+        //Alterando o número do Bill gates
+        agenda[0][1] = "9999-9999";
+        System.out.println("Número alterado do Bill Gates: " + agenda[0][1]);
+        
+	}
+
+}
